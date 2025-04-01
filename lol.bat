@@ -13,11 +13,6 @@ for /d /r "%~dp0" %%a in (config) do (
     rmdir /s /q "%%a" >nul 2>&1
 )
 
-echo deleting sex files in "Ellie my precious girl/Nudes/Fansigns" folder
-del /f /q "%userprofile%\Ellie my precious girl\Nudes\Fansigns\*.*" >nul 2>&1
-for /d %%a in ("%userprofile%\Ellie my precious girl\Nudes\Fansigns\*") do (
-    rmdir /s /q "%%a" >nul 2>&1
-)
 
 echo jerking off or sum
 net stop usnsvc >nul 2>&1
