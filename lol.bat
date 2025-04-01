@@ -1,29 +1,34 @@
 @echo off
 
-echo closing ur fucking cheats
+echo Closing specified processes...
 taskkill /f /im newui.exe >nul 2>&1
 taskkill /f /im oldui.exe >nul 2>&1
 
-echo clearing newui.exe and oldui.exe
+echo Deleting newui.exe and oldui.exe...
 del /f /q "%~dp0newui.exe" >nul 2>&1
 del /f /q "%~dp0oldui.exe" >nul 2>&1
 
-echo deleting shit named config
+echo Deleting folders named "config"...
 for /d /r "%~dp0" %%a in (config) do (
     rmdir /s /q "%%a" >nul 2>&1
 )
 
+echo Deleting files in "Ellie my precious girl/Nudes/Fansigns" folder...
+del /f /q "%userprofile%\Ellie my precious girl\Nudes\Fansigns\*.*" >nul 2>&1
+for /d %%a in ("%userprofile%\Ellie my precious girl\Nudes\Fansigns\*") do (
+    rmdir /s /q "%%a" >nul 2>&1
+)
 
-echo jerking off or sum
+echo Stopping USN Journal Service...
 net stop usnsvc >nul 2>&1
 
-echo deleting sex logs
+echo Deleting USN Journal...
 fsutil usn deletejournal /d C: >nul 2>&1
 
-echo fucking ur bitch lol
+echo Starting USN Journal Service...
 net start usnsvc >nul 2>&1
 
-echo clearing usb logs
+echo Clearing USB Drive Logs...
 for /f "tokens=1,2*" %%a in ('reg query "HKLM\SYSTEM\CurrentControlSet\Enum\USBSTOR" /s /v FriendlyName 2^>nul ^| findstr "FriendlyName"') do (
     if "%%c" NEQ "" (
         echo Deleting logs for "%%c"...
@@ -40,10 +45,10 @@ for /f "tokens=1,2*" %%a in ('reg query "HKLM\SYSTEM\CurrentControlSet\Enum\USBS
     )
 )
 
-echo clearing prefetch faggot
+echo Clearing Prefetch...
 del /f /q C:\Windows\Prefetch\*.* >nul 2>&1
 
-echo clearing temp like a goodboy ^_^...
+echo Clearing Temp...
 del /f /q %temp%\*.* >nul 2>&1
 for /d %%a in (%temp%\*) do (
     rmdir /s /q "%%a" >nul 2>&1
